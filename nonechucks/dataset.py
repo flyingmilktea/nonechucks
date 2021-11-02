@@ -2,6 +2,7 @@ import torch
 import torch.utils.data
 
 from nonechucks.utils import memoize
+from random import randint
 
 
 class SafeDataset(torch.utils.data.Dataset):
@@ -87,11 +88,14 @@ class SafeDataset(torch.utils.data.Dataset):
         """Behaves like the standard __getitem__ for Dataset when the index
         has been built.
         """
-        while idx < len(self.dataset):
+        while True:
             sample = self._safe_get_item(idx)
             if sample is not None:
                 return sample
-            idx += 1
+            while True:
+                idx = randint(0, len(self.dataset)-1)
+                if idx not in self._unsafe_indices:
+                    break
         raise IndexError
 
     def __getattr__(self, key):
