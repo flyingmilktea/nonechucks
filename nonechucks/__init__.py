@@ -10,17 +10,6 @@ logger = logging.getLogger(__name__)
 def _get_pytorch_version():
     version = torch.__version__
     major, minor = [int(x) for x in version.split(".")[:2]]
-    if major != 1:
-        raise RuntimeError(
-            "nonechucks only supports PyTorch major version 1 at the moment."
-        )
-    if minor > 2:
-        logger.warn(
-            "nonechucks may not work properly with this version of PyTorch ({}). "
-            "It has only been tested on PyTorch versions 1.0, 1.1, and 1.2".format(
-                version
-            )
-        )
     return major, minor
 
 

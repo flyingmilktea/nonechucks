@@ -12,7 +12,7 @@ setup(
     + """PyTorch's datasets, samplers, and transforms to """
     + """allow for dropping unwanted or invalid samples """
     + """dynamically.""",
-    install_requires=["future"],
+    install_requires=["future", "torch"],
     packages=find_packages(),
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
