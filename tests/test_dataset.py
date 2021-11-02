@@ -2,15 +2,15 @@ import collections
 import unittest
 
 try:
-    import unittest.mock as mock
+    pass
 except ImportError:
-    import mock
+    pass
 
 import torch
 import torch.utils.data as data
 
-from nonechucks import *
 import nonechucks
+from nonechucks import *
 
 
 class SafeDatasetTest(unittest.TestCase):
@@ -21,7 +21,7 @@ class SafeDatasetTest(unittest.TestCase):
     @classmethod
     def get_safe_dataset_pair(cls, dataset, **kwargs):
         """Returns a `SafeDatasetPair` (a tuple of size 2), which contains
-            both the unsafe and safe versions of the dataset.
+        both the unsafe and safe versions of the dataset.
         """
         return SafeDatasetTest.SafeDatasetPair(
             dataset, nonechucks.SafeDataset(dataset, **kwargs)

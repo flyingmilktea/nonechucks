@@ -1,7 +1,6 @@
 import collections
-
-from itertools import chain
 from functools import partial
+from itertools import chain
 
 import torch
 
@@ -9,6 +8,7 @@ try:
     from torch.utils.data.dataloader import default_collate
 except ImportError:
     from torch.utils.data._utils.collate import default_collate
+
 from torch._six import string_classes
 
 

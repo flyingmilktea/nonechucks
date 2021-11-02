@@ -1,14 +1,14 @@
 from functools import partial
-from future.utils import with_metaclass
 
 import torch.utils.data as data
+from future.utils import with_metaclass
 
 try:
     from torch.utils.data.dataloader import default_collate
 except ImportError:
     from torch.utils.data._utils.collate import default_collate
 
-from nonechucks import SingleProcessDataLoaderIter, MultiProcessingDataLoaderIter
+from nonechucks import MultiProcessingDataLoaderIter, SingleProcessDataLoaderIter
 from nonechucks.dataset import SafeDataset
 from nonechucks.sampler import SafeSampler
 from nonechucks.utils import batch_len, collate_batches, slice_batch

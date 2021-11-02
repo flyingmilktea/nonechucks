@@ -3,7 +3,6 @@ import logging
 import torch
 import torch.utils.data
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -27,6 +26,6 @@ else:
     MultiProcessingDataLoaderIter = torch.utils.data.dataloader._DataLoaderIter
 
 
+from nonechucks.dataloader import SafeDataLoader
 from nonechucks.dataset import SafeDataset
 from nonechucks.sampler import SafeSampler
-from nonechucks.dataloader import SafeDataLoader

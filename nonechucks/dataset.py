@@ -1,8 +1,7 @@
+from random import randint
+
 import torch
 import torch.utils.data
-
-from nonechucks.utils import memoize
-from random import randint
 
 
 class SafeDataset(torch.utils.data.Dataset):
@@ -93,7 +92,7 @@ class SafeDataset(torch.utils.data.Dataset):
             if sample is not None:
                 return sample
             while True:
-                idx = randint(0, len(self.dataset)-1)
+                idx = randint(0, len(self.dataset) - 1)
                 if idx not in self._unsafe_indices:
                     break
         raise IndexError
